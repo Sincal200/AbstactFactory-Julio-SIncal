@@ -8,18 +8,19 @@ import org.junit.Test;
 
 public class TestMultiIdioma {
 
-	Abstract_Factory factory;
+	Factory factory;
 
 	@Test
 	public void test_es() {
 		//implementar Abstract factory
-		factory = new Factory_ES();
-		Preguntas preguntas = factory.createPreguntas();
+
+		factory = new Factory_Spanish();
+		Preguntas preguntas = factory.preguntas();
 
 		assertEquals("¿qué hora es?", preguntas.preguntaHora() );
 		assertEquals("¿qué tiempo hace?", preguntas.preguntaTiempo() );
 		//implementar Abstract factor
-		Saludos saludos = factory.createSaludos();
+		Saludos saludos = factory.saludos();
 
 		assertEquals("buenos días", saludos.buenosDias());
 		assertEquals("buenas tardes", saludos.buenasTardes());
@@ -29,14 +30,14 @@ public class TestMultiIdioma {
 	public void test_en() {
 		//implementar Abstract factor
 
-		factory = new Factory_EN();
-		Preguntas preguntas = factory.createPreguntas();
+		factory = new Factory_English();
+		Preguntas preguntas = factory.preguntas();
 
 		assertEquals("what time is it?", preguntas.preguntaHora() );
 		assertEquals("how is the weather?", preguntas.preguntaTiempo() );
 
 		//implementar Abstract factor
-		Saludos saludos = factory.createSaludos();
+		Saludos saludos = factory.saludos();
 
 		assertEquals("good morning", saludos.buenosDias());
 		assertEquals("good afternoon", saludos.buenasTardes());
